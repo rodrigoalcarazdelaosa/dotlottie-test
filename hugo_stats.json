@@ -1,0 +1,32 @@
+{
+  "htmlElements": {
+    "tags": [
+      "a",
+      "article",
+      "body",
+      "div",
+      "dotlottie-wc",
+      "h1",
+      "head",
+      "html",
+      "main",
+      "meta",
+      "p",
+      "script",
+      "tgs-player",
+      "title"
+    ],
+    "classes": [
+      "gap-3",
+      "grid",
+      "grid-cols-1",
+      "lg:prose-xl",
+      "md:grid-cols-3",
+      "prose"
+    ],
+    "ids": [
+      "dotlottie-player-test",
+      "tgs-player-test"
+    ]
+  }
+}

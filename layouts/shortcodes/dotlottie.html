@@ -1,0 +1,19 @@
+{{/* dotLottie shortcode. */}}
+{{/* Load lottie/tgs from page dir falling back to media library at `assets/media/` and then to remote URI. */}}
+
+{{ $destination := .Get "src" }}
+{{ $is_remote := strings.HasPrefix $destination "http" }}
+{{- $asset := "" -}}
+{{- if not $is_remote -}}
+  {{- $asset = resources.Get (path.Join "media" $destination) -}}
+{{- end -}}
+
+{{ if $asset }}
+  {{ $destination = $asset.RelPermalink }}
+{{ else }}
+  {{ $destination = $destination | safeURL }}
+{{ end }}
+
+{{ $display := .Get "display" | default "block" | safeCSS }}
+
+<dotlottie-wc autoplay loop mode="normal" src="{{ $destination }}" style="width: {{ .Get "width" }}; height:auto; display: {{ $display }}"></dotlottie-wc>
