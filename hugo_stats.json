@@ -9,10 +9,13 @@
       "h1",
       "head",
       "html",
+      "img",
       "main",
       "meta",
       "p",
+      "picture",
       "script",
+      "source",
       "tgs-player",
       "title"
     ],

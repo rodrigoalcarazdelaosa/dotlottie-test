@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,7 +7,9 @@
     {{ .Title }}
   </title>
   <meta name="description" content="{{ .Description }}" />
-  {{ partialCached "css.html" . }}
+  {{ with (templates.Defer (dict "key" "global")) }}
+    {{ partial "css.html" . }}
+  {{ end }}
 </head>
 <body>
   <main>

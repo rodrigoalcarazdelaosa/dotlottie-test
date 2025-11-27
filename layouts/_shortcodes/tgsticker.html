@@ -1,0 +1,24 @@
+{{/* TGS shortcode using Telegram's RLottie approach. */}}
+{{/* Load TGS from page dir falling back to media library at `assets/media/` and then to remote URI. */}}
+
+{{ $destination := .Get "src" }}
+{{ $is_remote := strings.HasPrefix $destination "http" }}
+{{- $asset := "" -}}
+{{- if not $is_remote -}}
+  {{- $asset = resources.Get (path.Join "media" $destination) -}}
+{{- end -}}
+
+{{ if $asset }}
+  {{ $destination = $asset.RelPermalink }}
+{{ else }}
+  {{ $destination = $destination | safeURL }}
+{{ end }}
+
+{{ $width := .Get "width" | default "256" }}
+{{ $height := .Get "height" | default "256" }}
+{{ $display := .Get "display" | default "block" | safeCSS }}
+
+<picture style="width: {{ $width }}px; height: {{ $height }}px; display: {{ $display }}">
+  <source srcset="{{ $destination }}" type="application/x-tgsticker">
+  <img src="" alt="TGS Animation" width="{{ $width }}" height="{{ $height }}">
+</picture>
