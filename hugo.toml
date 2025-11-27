@@ -1,6 +1,6 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://dotlottie-test.pages.dev/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'dotLottie Test Site'
 
 [build]
   [build.buildStats]
